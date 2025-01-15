@@ -1,0 +1,45 @@
+{
+  "common_publisher_event_templates": {
+    "event_common_header": {
+      "template": {
+        "id": {"item_type":"$value","value":"$from_session_data", "key": "event_id"},
+        "originator": {"item_type": "$value", "value": "Garuda_Reconstructor"},
+        "version": {"item_type": "$value", "value": 1}
+      }
+    },
+
+    "event_metadata_common": {
+      "template": {
+        "correlation_id": { "item_type": "$value", "value": "$from_session_data", "key": "id"},
+        "timestamp": {"item_type": "$value", "value": "$current_time"},
+        "trace_id": {"item_type": "$value", "value": "$from_session_data", "key":"trace_id"}
+      }
+    },
+
+    "event_template_with_common_header_and_metadata": {
+      "template": {
+        "event_common_header": {
+          "item_type": "$template",
+          "template_id": "common_publisher_event_templates.event_common_header.template",
+          "method": "$replace"
+        },
+        "metadata": {
+          "item_type": "$template",
+          "template_id": "common_publisher_event_templates.event_metadata_common.template",
+          "method": "$update"
+        }
+      }
+    },
+
+    "event_template_with_common_header_metadata_empty_data": {
+      "template": {
+        "event_common_header": {
+          "item_type": "$template",
+          "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+          "method": "$replace"
+        },
+        "data": {"item_type": "$dict", "value": {}}
+      }
+    }
+  }
+}

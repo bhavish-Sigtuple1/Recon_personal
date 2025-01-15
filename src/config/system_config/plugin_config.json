@@ -1,0 +1,42 @@
+{
+  "reconstructor":{
+    "fov": {
+      "store_path": "reconstructors/fov/",
+      "creator_method": "get_reconstructor",
+      "plugins": {
+        "pbs_fov_reconstructor": {"id": "pbs_fov_reconstructor"},
+        "wsi_fov_reconstructor": {"id": "wsi_fov_reconstructor"}
+      },
+      "ignore_list":{
+        "files": ["__init__"],
+        "dirs": []
+      }
+    },
+    "aoi": {
+      "store_path": "reconstructors/aoi/",
+      "creator_method": "get_reconstructor",
+      "plugins": {
+        "pbs_aoi_reconstructor": {"id": "pbs_aoi_reconstructor"},
+        "wsi_aoi_reconstructor": {"id": "wsi_aoi_reconstructor"}
+      },
+      "ignore_list":{
+        "files": ["__init__",
+        "aoi_reconstructor_process"],
+        "dirs": []
+      }
+    },
+    "pipeline_elements": {
+      "store_path": "pipeline/pipeline_elements/elements/",
+      "creator_method": "get_pipeline_element",
+      "plugins": {
+        "fov_recon": {"id": "fov_recon"},
+        "aoi_recon": {"id": "aoi_recon"}
+      },
+      "ignore_list":{
+        "files": ["__init__"],
+        "dirs": []
+      }
+    }
+  },
+  "reconstruction_pipeline": ["fov_recon", "aoi_recon"]
+}

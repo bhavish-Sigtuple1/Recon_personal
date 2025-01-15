@@ -1,0 +1,47 @@
+{
+  "connection_config": {
+    "nats_server": { "type": "$command", "url": "os.getenv('ST_MSG_BUS')"},
+    "listeners": {
+      "recon_command_listener": {"transport": "$nats", "channel": "nila.garuda.recon.command", "callback": "_on_command_received"},
+      "recon_query_listener": {"transport": "$nats", "channel": "nila.garuda.recon.query", "callback": "_on_query_received"}
+    },
+    "publishers": {
+      "publish_event": {"transport": "$nats", "channel": "nila.garuda.recon.event"},
+      "publish_error": {"transport": "$nats", "channel": "nila.garuda.recon.error"},
+      "publish_query_response": {"transport": "$nats", "channel": "nila.garuda.recon.query_response"},
+      "publish_log": {"transport": "$nats", "channel": "nila.garuda.recon.log"},
+      "publish_metrics": {"transport": "$nats", "channel": "nila.garuda.recon.metrics"},
+      "publish_reply": {"transport": "$nats"}
+    }
+  },
+  "messages": {
+    "commands": {
+      "start_pbs_reconstruction": {"recon_message_id": "start_pbs_reconstruction", "template": {"parser": "start_pbs_reconstruction.template", "constructor": ""}},
+      "start_wsi_reconstruction": {"recon_message_id": "start_wsi_reconstruction", "template": {"parser": "start_wsi_reconstruction.template", "constructor": ""}},
+      "abort_pbs_reconstruction": {"recon_message_id": "abort_pbs_reconstruction", "template": {"parser": "abort_pbs_reconstruction.template", "constructor": ""}},
+      "abort_wsi_reconstruction": {"recon_message_id": "abort_wsi_reconstruction", "template": {"parser": "abort_wsi_reconstruction.template", "constructor": ""}},
+      "reconstruct_pbs_fov": {"recon_message_id": "reconstruct_pbs_fov", "template": {"parser": "reconstruct_pbs_fov.template", "constructor": ""}},
+      "reconstruct_wsi_fov": {"recon_message_id": "reconstruct_wsi_fov", "template": {"parser": "reconstruct_wsi_fov.template", "constructor": ""}},
+      "complete_pbs_reconstruction": {"recon_message_id": "complete_pbs_reconstruction", "template": {"parser": "complete_pbs_reconstruction.template", "constructor": ""}},
+      "complete_wsi_reconstruction": {"recon_message_id": "complete_wsi_reconstruction", "template": {"parser": "complete_wsi_reconstruction.template", "constructor": ""}}},
+    "events": {
+      "pbs_aoi_reconstruction_started_event": {"template": {"constructor": "pbs_aoi_reconstruction_started.template"}, "publish_to": "publish_event"},
+      "wsi_aoi_reconstruction_started_event": {"template": {"constructor": "wsi_aoi_reconstruction_started.template"}, "publish_to": "publish_event"},
+      "pbs_fov_reconstruction_completed_event": {"template": {"constructor": "pbs_fov_reconstruction_completed.template"}, "publish_to": "publish_event"},
+      "wsi_fov_reconstruction_completed_event": {"template": {"constructor": "wsi_fov_reconstruction_completed.template"}, "publish_to": "publish_event"},
+      "pbs_aoi_reconstruction_completed_event": {"template": {"constructor": "pbs_aoi_reconstruction_completed.template"}, "publish_to": "publish_event"},
+      "wsi_aoi_reconstruction_completed_event": {"template": {"constructor": "wsi_aoi_reconstruction_completed.template"}, "publish_to": "publish_event"},
+      "pbs_fov_reconstruction_aborted_event": {"template": {"constructor": "pbs_fov_reconstruction_aborted.template"}, "publish_to": "publish_event"},
+      "wsi_fov_reconstruction_aborted_event": {"template": {"constructor": "wsi_fov_reconstruction_aborted.template"}, "publish_to": "publish_event"},
+      "pbs_aoi_reconstruction_aborted_event": {"template": {"constructor": "pbs_aoi_reconstruction_aborted.template"}, "publish_to": "publish_event"},
+      "wsi_aoi_reconstruction_aborted_event": {"template": {"constructor": "wsi_aoi_reconstruction_aborted.template"}, "publish_to": "publish_event"},
+      "recon_log_publisher": {"template": {"constructor": "recon_log.template"}, "publish_to": "publish_log"},
+      "recon_error_publisher": {"template": {"constructor": "recon_error.template"}, "publish_to": "publish_error"},
+      "recon_query_response_publisher": {"template": {"constructor": "recon_query_response.template"}, "publish_to": "publish_query_response"},
+      "recon_metrics_publisher": {"template": {"constructor": "recon_metrics_captured.template"}, "publish_to": "publish_metrics"}
+    },
+    "errors": {
+      "recon_errors": {"template": {"constructor": "recon_errors_event.template"}, "publish_to": "publish_error"}
+    }
+  }
+}

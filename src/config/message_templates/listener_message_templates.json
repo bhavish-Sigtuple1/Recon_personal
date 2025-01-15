@@ -1,0 +1,215 @@
+{
+  "common_session_data": {
+    "template": {
+      "recon_session_id": {"item_type": "$value", "message_key": "data.recon_session_id"},
+      "id": {"item_type": "$value", "message_key": "id"},
+      "version": {"item_type": "$value", "message_key": "version"},
+      "correlation_id": {"item_type": "$value", "message_key": "metadata.correlation_id"},
+      "trace_id": {"item_type": "$value", "message_key": "metadata.trace_id"},
+      "originator": {"item_type": "$value", "message_key": "originator"},
+      "slot_id": {"item_type": "$value", "message_key": "data.slot_id"},
+      "aoi_id": {"item_type": "$value", "message_key": "data.aoi_id"}
+    }
+  },
+  "start_pbs_reconstruction": {
+    "template": {
+      "type": {"item_type": "$value", "message_key": "type"},
+      "session_data": {
+        "item_type": "$dict",
+        "value": {
+          "common_session_data": {
+            "item_type": "$template",
+            "template_id": "common_session_data.template",
+            "method": "$replace"
+          }
+        }
+      },
+      "app_data": {
+        "item_type": "$dict",
+        "value": {
+          "mode": {"item_type": "$value", "message_key": "data.mode"},
+          "qi_check": {"item_type": "$value", "message_key": "data.qi_check"},
+          "capture_level": {"item_type": "$value", "message_key": "data.capture_level"},
+          "scan_pattern": {"item_type": "$value", "message_key": "data.scan_pattern"},
+          "scan_pattern_first_direction": {"item_type": "$value", "message_key": "data.scan_pattern_first_direction"},
+          "scan_pattern_second_direction": {"item_type": "$value", "message_key": "data.scan_pattern_second_direction"},
+          "ppm": {"item_type": "$value", "message_key": "data.ppm"},
+          "fov_height_px": {"item_type": "$value", "message_key": "data.fov_height_px"},
+          "fov_width_px": {"item_type": "$value", "message_key": "data.fov_width_px"},
+          "estimated_total_fov_count": {"item_type": "$value", "message_key": "data.estimated_total_fov_count"},
+          "estimated_number_of_x_images": {"item_type": "$value", "message_key": "data.estimated_number_of_x_images"},
+          "estimated_number_of_y_images": {"item_type": "$value", "message_key": "data.estimated_number_of_y_images"},
+          "aoi_dir_path": {"item_type": "$value", "message_key": "data.aoi_dir_path"},
+          "illumination_profile_image_path": {"item_type": "$value", "message_key": "data.illumination_profile"},
+          "overlap_x_px": {"item_type": "$value", "message_key": "data.overlap_x_px"},
+          "overlap_y_px": {"item_type": "$value", "message_key": "data.overlap_y_px"}
+        }
+      }
+    }
+  },
+  "reconstruct_pbs_fov": {
+    "template": {
+      "type": {"item_type": "$value", "message_key": "type"},
+      "session_data": {
+        "item_type": "$dict",
+        "value": {
+          "common_data": {
+            "item_type": "$template",
+            "template_id": "common_session_data.template",
+            "method": "$replace"
+          }
+        }
+      },
+      "app_data": {
+        "item_type": "$dict",
+        "value": {
+          "current_fov_count": {"item_type": "$value", "message_key": "data.current_fov_count"},
+          "fov_data": {
+            "item_type": "$value", "message_key" : "data.fov_data"
+          }
+        }
+      }
+    }
+  },
+  "complete_pbs_reconstruction": {
+    "template": {
+      "type": {"item_type": "$value", "message_key": "type"},
+      "session_data": {
+        "item_type": "$dict",
+        "value": {
+          "common_data": {
+            "item_type": "$template",
+            "template_id": "common_session_data.template",
+            "method": "$replace"
+          }
+        }
+      },
+      "app_data": {
+        "item_type": "$dict",
+        "value": {
+          "scan_status": {"item_type":"$value", "message_key":"data.scan_status"}
+        }
+      }
+    }
+  },
+  "abort_pbs_reconstruction": {
+    "template": {
+      "type": {"item_type": "$value", "message_key": "type"},
+      "session_data": {
+        "item_type": "$dict",
+        "value": {
+          "common_data": {
+            "item_type": "$template",
+            "template_id": "common_session_data.template",
+            "method": "$replace"
+          }
+        }
+      },
+      "app_data": {
+        "item_type": "$dict",
+        "value": {}
+      }
+    }
+  },
+  "start_wsi_reconstruction": {
+    "template": {
+      "type": {"item_type": "$value", "message_key": "type"},
+      "session_data": {
+        "item_type": "$dict",
+        "value": {
+          "common_session_data": {
+            "item_type": "$template",
+            "template_id": "common_session_data.template",
+            "method": "$replace"
+          }
+        }
+      },
+      "app_data": {
+        "item_type": "$dict",
+        "value": {
+          "mode": {"item_type": "$value", "message_key": "data.mode"},
+          "qi_check": {"item_type": "$value", "message_key": "data.qi_check"},
+          "capture_level": {"item_type": "$value", "message_key": "data.capture_level"},
+          "scan_pattern": {"item_type": "$value", "message_key": "data.scan_pattern"},
+          "scan_pattern_first_direction": {"item_type": "$value", "message_key": "data.scan_pattern_first_direction"},
+          "scan_pattern_second_direction": {"item_type": "$value", "message_key": "data.scan_pattern_second_direction"},
+          "ppm": {"item_type": "$value", "message_key": "data.ppm"},
+          "fov_height_px": {"item_type": "$value", "message_key": "data.fov_height_px"},
+          "fov_width_px": {"item_type": "$value", "message_key": "data.fov_width_px"},
+          "estimated_total_fov_count": {"item_type": "$value", "message_key": "data.estimated_total_fov_count"},
+          "estimated_number_of_x_images": {"item_type": "$value", "message_key": "data.estimated_number_of_x_images"},
+          "estimated_number_of_y_images": {"item_type": "$value", "message_key": "data.estimated_number_of_y_images"},
+          "illumination_profile_image_path": {"item_type": "$value", "message_key": "data.illumination_profile"}
+        }
+      }
+    }
+  },
+  "reconstruct_wsi_fov": {
+    "template": {
+      "type": {"item_type": "$value", "message_key": "type"},
+      "session_data": {
+        "item_type": "$dict",
+        "value": {
+          "common_data": {
+            "item_type": "$template",
+            "template_id": "common_session_data.template",
+            "method": "$replace"
+          }
+        }
+      },
+      "app_data": {
+        "item_type": "$dict",
+        "value": {
+          "current_fov_count": {"item_type": "$value", "message_key": "data.current_fov_count"},
+          "fov_data": {
+            "item_type": "$dict",
+            "value": {
+              "path": {"item_type": "$value", "message_key":  "data.fov_image.path"},
+              "ppm": {"item_type": "$value", "message_key":  "data.fov_image.ppm"}
+            }
+          }
+        }
+      }
+    }
+  },
+  "complete_wsi_reconstruction": {
+    "template": {
+      "type": {"item_type": "$value", "message_key": "type"},
+      "session_data": {
+        "item_type": "$dict",
+        "value": {
+          "common_data": {
+            "item_type": "$template",
+            "template_id": "common_session_data.template",
+            "method": "$replace"
+          }
+        }
+      },
+      "app_data": {
+        "item_type": "$dict",
+        "value": {
+          "scan_status": {"item_type":"$value", "message_key":"data.scan_status"}
+        }
+      }
+    }
+  },
+  "abort_wsi_reconstruction": {
+    "template": {
+      "type": {"item_type": "$value", "message_key": "type"},
+      "session_data": {
+        "item_type": "$dict",
+        "value": {
+          "common_data": {
+            "item_type": "$template",
+            "template_id": "common_session_data.template",
+            "method": "$replace"
+          }
+        }
+      },
+      "app_data": {
+        "item_type": "$dict",
+        "value": {}
+      }
+    }
+  }
+}

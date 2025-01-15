@@ -1,0 +1,371 @@
+{
+  
+  "pbs_aoi_reconstruction_started": {
+    "template": {
+      "type": {
+        "item_type": "$value",
+        "value": "pbs_aoi_reconstruction_started"
+      },
+      "common_data": {
+        "item_type": "$template",
+        "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+        "method": "$replace"
+      },
+      "data": {
+        "item_type": "$dict",
+        "value": {
+          "recon_session_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "recon_session_id"
+          },
+          "slot_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "slot_id"
+          },
+          "aoi_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "aoi_id"
+          }
+        }
+      }
+    }
+  },
+
+  "pbs_fov_reconstruction_completed": {
+    "template": {
+      "type": {
+        "item_type": "$value",
+        "value": "pbs_fov_reconstruction_completed"
+      },
+      "common_data": {
+        "item_type": "$template",
+        "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+        "method": "$replace"
+      },
+      "data": {
+        "item_type": "$dict",
+        "value": {
+          "recon_session_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "recon_session_id"
+          },
+          "slot_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "slot_id"
+          },
+          "aoi_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "aoi_id"
+          },
+          "aoi_image": {
+            "item_type":"$value",
+            "value":"$from_app_data",
+            "key":"aoi_image"
+          }
+        }
+      }
+    }
+  },
+  "pbs_aoi_reconstruction_completed": {
+    "template": {
+      "type": {
+        "item_type": "$value",
+        "value": "pbs_aoi_reconstruction_completed"
+      },
+      "common_data": {
+        "item_type": "$template",
+        "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+        "method": "$replace"
+      },
+      "data": {
+        "item_type": "$dict",
+        "value": {
+          "recon_session_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "recon_session_id"
+          },
+          "slot_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "slot_id"
+          },
+          "aoi_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "aoi_id"
+          },
+          "aoi_image": {
+            "item_type":"$value",
+            "value":"$from_app_data",
+            "key":"aoi_image"
+          },
+          "recon_purge_folder": {
+            "item_type":"$value",
+            "value":"$from_app_data",
+            "key":"recon_purge_folder"
+          }
+        }
+      }
+    }
+  },
+  "pbs_fov_reconstruction_aborted": {
+    "template": {
+      "type": {
+        "item_type": "$value",
+        "value": "pbs_fov_reconstruction_aborted"
+      },
+      "common_data": {
+        "item_type": "$template",
+        "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+        "method": "$replace"
+      },
+      "data": {
+        "item_type": "$dict",
+        "value": {
+          "recon_session_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "recon_session_id"
+          },
+          "slot_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "slot_id"
+          },
+          "aoi_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "aoi_id"
+          }
+        }
+      }
+    }
+  },
+  "pbs_aoi_reconstruction_aborted": {
+    "template": {
+      "type": {
+        "item_type": "$value",
+        "value": "pbs_aoi_reconstruction_aborted"
+      },
+      "common_data": {
+        "item_type": "$template",
+        "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+        "method": "$replace"
+      },
+      "data": {
+        "item_type": "$dict",
+        "value": {
+          "recon_session_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "recon_session_id"
+          },
+          "slot_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "slot_id"
+          },
+          "aoi_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "aoi_id"
+          }
+        }
+      }
+    }
+  },
+  "wsi_reconstruction_started": {
+    "template": {
+      "type": {
+        "item_type": "$value",
+        "value": "pbs_reconstruction_started"
+      },
+      "common_data": {
+        "item_type": "$template",
+        "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+        "method": "$replace"
+      },
+      "data": {
+        "item_type": "$dict",
+        "value": {
+          "recon_session_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "recon_session_id"
+          },
+          "slot_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "slot_id"
+          },
+          "aoi_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "aoi_id"
+          }
+        }
+      }
+    }
+  },
+  "wsi_fov_reconstructed": {
+    "template": {
+      "type": {
+        "item_type": "$value",
+        "value": "pbs_fov_processed"
+      },
+      "common_data": {
+        "item_type": "$template",
+        "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+        "method": "$replace"
+      },
+      "data": {
+        "item_type": "$dict",
+        "value": {
+          "recon_session_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "recon_session_id"
+          },
+          "slot_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "slot_id"
+          },
+          "aoi_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "aoi_id"
+          },
+          "fov_image": {
+            "item_type": "$value",
+            "value": "$from_app_data",
+            "key": "fov_image"
+          },
+          "current_fov_count": {
+            "item_type": "$value",
+            "value": "$from_app_data",
+            "key": "current_fov_count"
+          },
+          "elapsed_time": {
+            "item_type": "$value",
+            "value": "$from_app_data",
+            "key": "elapsed_time"
+          }
+        }
+      }
+    }
+  },
+  "wsi_reconstruction_completed": {
+    "template": {
+      "type": {
+        "item_type": "$value",
+        "value": "pbs_reconstruction_completed"
+      },
+      "common_data": {
+        "item_type": "$template",
+        "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+        "method": "$replace"
+      },
+      "data": {
+        "item_type": "$dict",
+        "value": {
+          "recon_session_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "recon_session_id"
+          },
+          "slot_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "slot_id"
+          },
+          "aoi_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "aoi_id"
+          },
+          "aoi_image": {
+            "item_type":"$value",
+            "value":"$from_app_data",
+            "key":"aoi_image"
+          }
+        }
+      }
+    }
+  },
+  "wsi_reconstruction_aborted": {
+    "template": {
+      "type": {
+        "item_type": "$value",
+        "value": "pbs_reconstruction_completed"
+      },
+      "common_data": {
+        "item_type": "$template",
+        "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+        "method": "$replace"
+      },
+      "data": {
+        "item_type": "$dict",
+        "value": {
+          "recon_session_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "recon_session_id"
+          },
+          "slot_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "slot_id"
+          },
+          "aoi_id": {
+            "item_type": "$value",
+            "value": "$from_session_data",
+            "key": "aoi_id"
+          }
+        }
+      }
+    }
+  },
+  "recon_metrics_captured": {
+    "template": {
+      "recon_metrics": {"item_type": "$value",  "value": "$from_app_data", "key": "metrics"}
+    }
+  },
+  "recon_log": {
+    "template": {
+      "recon_metrics": {"item_type": "$value",  "value": "$from_app_data", "key": "log"}
+    }
+  },
+  "recon_error": {
+    "template": {
+        "recon_error": {"item_type": "$value",  "value": "$from_app_data", "key": "error"}
+    }
+  },
+  "recon_query_response": {
+    "template": {
+
+    }
+  },
+  "recon_errors_event": {
+        "template": {
+          "common_data": {
+            "item_type": "$template",
+            "template_id": "common_publisher_event_templates.event_template_with_common_header_and_metadata.template",
+            "method": "$replace"},
+          "type": { "item_type": "$value",  "value": "errors"},
+          "data": { "item_type": "$dict",
+            "value": {
+              "error_msg": {"item_type":"$value", "value":"$from_app_data", "key":"error_msg"},
+              "error_code": {"item_type":"$value","value":"$from_app_data", "key":"error_code"}
+            }
+          }
+        }
+      }
+}

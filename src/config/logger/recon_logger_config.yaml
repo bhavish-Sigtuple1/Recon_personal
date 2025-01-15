@@ -1,0 +1,39 @@
+version: 1
+disable_existing_loggers: false
+formatters:
+ extended_formatter:
+  format: "%(asctime)-15s %(levelname)-5s %(filename)s : %(lineno)d %(funcName)s [Process-%(processName)s] [Process_Id-%(process)d] [Thread-%(threadName)s]: %(message)s"
+  datefmt: "%d-%m-%Y %H:%M:%S"
+handlers: 
+ debug_log_handler:
+  class: logging.handlers.TimedRotatingFileHandler
+  level: INFO
+  filename: debug.log
+  formatter: extended_formatter
+ error_log_handler:
+  class: logging.handlers.RotatingFileHandler
+  level: ERROR
+  filename: debug.log
+  formatter: extended_formatter
+ log_to_stdout:
+  class: logging.StreamHandler
+  level: INFO
+  formatter: extended_formatter
+  stream: ext://sys.stdout
+modules:
+ garuda_recon:
+  level: INFO
+  handlers: [debug_log_handler, error_log_handler, log_to_stdout]
+ hwal:
+  level: WARN
+  handlers: [log_to_stdout]
+ publish:
+  level: INFO
+  handlers: [log_to_stdout]
+ subscribe:
+  level: CRITICAL
+  handlers: [log_to_file]
+root:
+ level: INFO
+ handlers: [log_to_stdout]
+ propagate: true
